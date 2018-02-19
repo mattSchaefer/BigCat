@@ -1,0 +1,93 @@
+html{height: -webkit-fill-available; width: -webkit-fill-available;}
+html *{font: 400 100px/1.3 'Oleo Script', Helvetica, sans-serif;}/****/
+body {
+  padding: 15px;
+  padding-top: 0;
+  padding-bottom: 0;
+  height:-webkit-fill-available;
+  width: -webkit-fill-available;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+i{font-size: .25em !important;}
+p{font-size: .25em;}
+.hug-side{padding: 0;}
+.fill{height: 100vh;}
+.half-fill{height: 50vh;}
+.blue-background{background: #172553}
+.red-background{background: #c42a56}
+.white-background{background: #b9c6e9}
+.green-background{background: #469989}
+.yellow-background{background: #e6bc54}
+.white-text{color: #b9c6e9}
+.yellow-text{color: #e6bc54; font-size: 1em; transition: all .25s; transition-timing-function: ease;}
+.social-link{color: #e6bc54; font-size: 1em; transition: all .25s; transition-timing-function: ease;}
+.side-link:hover, .side-link:focus{color: #469989; transition: all .35s; font-size: .7em; transition-timing-function: ease;}
+.social-link:hover, .social-link:focus{color: #469989; transition: all .35s; font-size: 1.2em; transition-timing-function: ease;}
+.blue-text{color: #172553}
+.green-text{color: #469989}
+.cream-text{color: #fcecc4}
+#main-header{width: 100%; height: 43%; font-size: .9em;}
+.view-container{height: 56.5%;}
+.right-side-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.sidebar-item a{
+    text-decoration: underline;
+    font-size: .25em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.audio-player{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items: flex-start;
+    height: 80%;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e6bc54;
+}
+.song{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 33px;
+}
+.song-icon{
+    margin-right: 5px;
+    border-radius: 50px;
+    padding: 5px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 23px;
+    border: 1px solid #e6bc54;
+    margin-left: 5px;
+}
+.small-font{font-size: .12em !important;}
+.sidebar{
+    padding-left: 10px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.flex-center{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.bottom-right{display: flex; flex-direction: column; justify-content: flex-end;align-items: center;}
+.scrollable::-webkit-scrollbar { width: 0 !important }
+#audio-header{font-size: .2em !important; border-bottom: 2px solid #e6bc54; margin-top: 15px; padding-bottom: 15px; width: 100%; text-align: center;}

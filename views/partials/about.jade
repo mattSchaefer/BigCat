@@ -1,0 +1,17 @@
+div(ng-controller="AboutController")
+    h3.partial-header.blue-text About
+    p(style="margin-left: 80px;") We're Big Cat & the Show Girls, an idie pop-punk band from Cincinnati, OH.  Our new-age, unique sound is one to which listeners can easily connect.  Our influences include the Front Bottoms, Green Day, etc. etc. etc.  Read about the members below.  Let Big Cat touch your not only your ears, but also your soul with his beautiful, jarring vocals.  
+    h4.partial-header.blue-text Members
+    div.row
+        div(ng-repeat="member in members" style="margin: 23px; display: flex; flex-direction: row; border-bottom: 1px solid;").col-md-12
+            div
+                img(ng-src="{{member.img_src}}" style="margin-bottom: 20px; border-radius: 3px;").member-img
+            div(style="margin-left: 15px;")
+                p(style="margin-bottom: 20px; border-bottom: 1px solid; width: fit-content;") {{member.name}}, a.k.a {{member.aka}}
+                p 
+                    | Weapon of Choice: 
+                    span(style="font-size: 20px;").blue-text {{member.weapon_of_choice}}
+                     
+                p(style="margin-top: 10px; padding-right: 20px;").blue-text {{member.description}}
+            
+        

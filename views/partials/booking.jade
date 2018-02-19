@@ -1,0 +1,16 @@
+div(ng-controller="BookingController")
+    h3.partial-header.blue-text Booking
+    p(style="text-align: center; margin-left: 40px; margin-right: 40px; border-bottom: 1px solid;") Please leave your email along with a short description of the nature and location of the proposed show.    
+    div(style="margin-top: 20px;")
+        div.input-label
+            label Name:
+            input(ng-model="name" type="text" ng-required="true")
+        div.input-label
+            label Email:
+            input(ng-model="email" type="email" ng-required="true")
+        div.input-label
+            label Message:
+            textarea(ng-model="messageText")
+        div(style="width: 100%; display: flex; flex-direction: row; aligin-items: center; justify-content: center;")
+            button.submit-btn.white-text Submit
+        

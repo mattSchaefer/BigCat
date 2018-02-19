@@ -1,0 +1,66 @@
+doctype html
+html(ng-app="mainApp")
+  head
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    base(href='/')
+    link(rel="stylesheet", href="/stylesheets/bootstrap.min.css")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/partials.css')
+    link(href='http://fonts.googleapis.com/css?family=Oleo+Script' rel='stylesheet' type='text/css')
+  body(ng-controller="MainController" ng-init="init()")
+    div.fill
+        div.row
+            div.col-md-11
+                div.row.half-fill
+                    div.col-md-3.hug-side.blue-background
+                        img(ng-src="images/bigcatalbumcover.jpg" style="width: 100% !important; height: 100% !important")
+                    div(style="padding: 0;").col-md-9.red-background.flex-center
+                        div(style="display: flex; flex-direction: column; justify-content: center; align-items: center;")
+                            h1#main-header.red-background.blue-text.flex-center Big Cat & the Show Girls
+                            div(style="width: 65%;")
+                                //- p(style="margin-top: -.25em;").blue-text purrrrrrr ;-)
+                                footer(style="font-size: .15em;").blockquote-footer.blue-text Big Cat 
+                div.row.half-fill
+                    div.col-md-3.hug-side.blue-background
+                        div.sidebar
+                            div.sidebar-item
+                                a.yellow-text.side-link(href='/about') About
+                            div.sidebar-item
+                                a.yellow-text.side-link(href='/dates') Dates
+                            div.sidebar-item
+                                a.yellow-text.side-link(href='/booking') Booking
+                            div.sidebar-item
+                                a.yellow-text.side-link(href='/pics') Pics
+                            div.sidebar-item
+                                a.yellow-text.side-link(href="/music") Music
+                    div(style="display: flex; flex-direction: row; justify-content: center;").col-md-9.green-background
+                        div(ng-view="" style="height: 100%; width: 65%; display: flex; flex-direction: row; padding-top: 15px; padding-left: 15px; padding-right: 15px; overflow: scroll;").scrollable.view-container.white-background
+            div.col-md-1.blue-background.right-side-container
+                div.audio-player.row
+                    span#audio-header.small-font.yellow-text {{'audio'}} player
+                    div.song.yellow-text(ng-repeat="song in soundsDisplay")
+                        i.fa.fa-play.small-font.song-icon
+                        span.small-font {{song.display}}
+                div.link-container.row
+                    div(style="height: .5em").col-md-6.flex-center
+                        a.social-link.yellow-text.flex-center(href="https://bigcatshowgirls.bandcamp.com/" target="_blank")
+                            i.fa.fa-bandcamp.flex-center
+                    div(style="height: .5em").col-md-6.flex-center
+                        a.social-link.yellow-text.flex-center(href="https://www.facebook.com/bigcatshowgirls/" target="_blank")
+                            i.fa.fa-facebook.flex-center
+                    div(style="height: .5em").col-md-6.flex-center
+                        a.social-link.yellow-text.flex-center(href="https://www.instagram.com/bigcatshowgirls/" target="_blank")
+                            i.fa.fa-instagram.flex-center
+                    div(style="height: .5em").col-md-6.flex-center
+                        a.social-link.yellow-text.flex-center(href="https://open.spotify.com/artist/7dKlc9AXuwyUfy0ZufdOmM" target="_blank")
+                            i.fa.fa-spotify.flex-center
+script(src='/javascripts/jquery.min.js')
+script(src='/javascripts/angular.min.js')
+script(src='/javascripts/angular-route.min.js')
+script(src='/javascripts/angular-animate.min.js')
+script(src='/javascripts/ui-bootstrap.min.js')
+script(src='/javascripts/main-controller.js')
+script(src='/javascripts/createjs-2015.11.26.min.js')
+script(src="https://use.fontawesome.com/b111de9850.js")
+//audio#default-sound(src='/audio/days_are_gone.mp3' preload="auto")
+    

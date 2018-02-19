@@ -1,0 +1,18 @@
+div(ng-controller="DatesController")
+    h3.partial-header.blue-text Dates
+    div.scrollable(style="overflow-y: scroll;")
+        div(ng-repeat="showDate in showDates")
+            div(style="display: flex; flex-direction: row; align-items: flex-start;")
+                div(style="display: flex; flex-direction: column; margin-right: 30px;")
+                    p {{showDate.dateDisplay.month_day}}
+                    p {{showDate.dateDisplay.time}}
+                div(style="border-bottom: 1px solid; margin-bottom: 15px; width: -webkit-fill-available;")
+                    h4.blue-text {{showDate.title}}
+                    ul(style="margin-bottom: 5px;").blue-text
+                        li(style="font-size: 17px !important;") {{showDate.venu}}
+                        li {{showDate.address}}
+                        il {{showDate.substring(showDate.indexOf('-') + 1, showDate.indexOf('T'))}}
+        p
+          | Want to book us?  Click 
+          a(style="font-size: 20px; border-bottom: 1px solid #469989; color: #469989; cursor: pointer; text-decoration: underline" href="/booking").green-text here
+          |  and fill out the form

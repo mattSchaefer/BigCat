@@ -1,0 +1,38 @@
+h4{font-size: 26px;}
+h3{font-size: 35px;}
+ul{list-style: none !important;}
+li{font-size: 12px;}
+p, label, input, textarea, button{
+    margin-bottom: 0;
+    font-size: 20px;
+}
+input, textarea{
+    background: transparent;
+    border: 1px solid;
+    border-bottom: 1px solid;
+    font-size: 15px !important;
+}
+textarea{border: 1px solid; width: 15em; height: 4em;}
+.submit-btn{
+    background: #469989;
+    border: 1px solid #469989;
+    cursor: pointer;
+    color: white;
+}
+.partial-header{
+    border-bottom: 1px solid #292b2c;
+    width: fit-content;
+    margin-bottom: 20px;
+}
+.member-img{
+    width: auto;
+    height: 220px;
+}
+.input-label{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.scrollable::-webkit-scrollbar { width: 0 !important }
