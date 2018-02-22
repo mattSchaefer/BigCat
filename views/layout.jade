@@ -1,5 +1,5 @@
 doctype html
-html(ng-app="mainApp")
+html(ng-app="mainApp").green-background
   head
     meta(name='viewport', content='width=device-width, initial-scale=1')
     base(href='/')
@@ -14,8 +14,8 @@ html(ng-app="mainApp")
                 div.row.half-fill
                     div.col-md-3.hug-side.blue-background
                         img(ng-src="images/bigcatalbumcover.jpg" style="width: 100% !important; height: 100% !important")
-                    div(style="padding: 0;").col-md-9.red-background.flex-center
-                        div(style="display: flex; flex-direction: column; justify-content: center; align-items: center;")
+                    div(style="padding: 0;").col-md-9.red-background.flex-center#top-bar
+                        div(style="display: flex; flex-direction: column; justify-content: center; align-items: center;")#header-container
                             h1#main-header.red-background.blue-text.flex-center Big Cat & the Show Girls
                             div(style="width: 65%;")
                                 //- p(style="margin-top: -.25em;").blue-text purrrrrrr ;-)
@@ -33,13 +33,13 @@ html(ng-app="mainApp")
                                 a.yellow-text.side-link(href='/pics') Pics
                             div.sidebar-item
                                 a.yellow-text.side-link(href="/music") Music
-                    div(style="display: flex; flex-direction: row; justify-content: center;").col-md-9.green-background
-                        div(ng-view="" style="height: 100%; width: 65%; display: flex; flex-direction: row; padding-top: 15px; padding-left: 15px; padding-right: 15px; overflow: scroll;").scrollable.view-container.white-background
+                    div(style="display: flex; flex-direction: row; justify-content: center;").col-md-9.green-background#bottom-section
+                        div(ng-view="" style="height: 100%; width: 65%; display: flex; flex-direction: row; padding-top: 15px; padding-left: 15px; padding-right: 15px; overflow: scroll;" onscroll="scrolled()").scrollable.view-container.white-background
             div.col-md-1.blue-background.right-side-container
                 div.audio-player.row
                     span#audio-header.small-font.yellow-text {{'audio'}} player
-                    div.song.yellow-text(ng-repeat="song in soundsDisplay")
-                        i.fa.fa-play.small-font.song-icon
+                    div.song.yellow-text(ng-repeat="song in soundsDisplay" ng-click="playSound(song.id, $index)")
+                        i(ng-class="{'fa-pause': instance.src == song.src && !instance.paused, 'fa-play': instance.src != song.src || instance.paused}").fa.fa-play.small-font.song-icon
                         span.small-font {{song.display}}
                 div.link-container.row
                     div(style="height: .5em").col-md-6.flex-center

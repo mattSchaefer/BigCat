@@ -1,8 +1,9 @@
 var app = angular.module('mainApp', ['ngRoute', 'ngAnimate', 'ui.bootstrap'])
-.controller('MainController',['$scope', '$window', '$http', function($scope, $window,$http){
+.controller('MainController',['$scope', '$window', '$http', '$timeout', function($scope, $window,$http, $timeout){
     $window.onscroll = function(){
-        
+        //alert('view scroll');
     };
+    $scope.instance='';
     $scope.message = "controller active";
     var sound = { src: "audio/days_are_gone.mp3", id: "default"};
     $scope.sounds = [
@@ -38,6 +39,9 @@ var app = angular.module('mainApp', ['ngRoute', 'ngAnimate', 'ui.bootstrap'])
         if (!createjs.Sound.initializeDefaultPlugins()) {return;}
         createjs.Sound.alternateExtensions = ["mp3"];
         createjs.Sound.registerSounds($scope.sounds);
+
+
+        //console.log(createjs.Sound.registerSounds($scope.sounds));
         $http.get('/showdates').then(function(response){
             if(!response){
                 console.log('no repsonse :(');
@@ -62,11 +66,31 @@ var app = angular.module('mainApp', ['ngRoute', 'ngAnimate', 'ui.bootstrap'])
         });
 
     };
-    $scope.playSound = function(){
-        if(!$scope.instance)
-            $scope.instance = createjs.Sound.play($scope.sounds[0].id, {loop:-1});
-        else
-            $scope.instance.paused ? $scope.instance.paused = false : $scope.instance.paused = true;
+    $scope.playSound = function(soundId, index){
+        //createjs.Sound.play(sound.id, {loop:-1});
+        //createjs.Sound.play($scope.sounds[index].id, {loop:-1});
+        console.log(index);
+        if($scope.instance==''){
+            console.log(soundId);
+
+                $scope.instance = createjs.Sound.play($scope.sounds[index].id, {loop:-1});
+                console.log($scope.instance);
+
+
+        }else
+                //console.log($scope.instance.src);
+                $scope.instance.paused ? $scope.instance.paused = false : $scope.instance.paused = true;
+                //$scope.instance.paused = true;
+            //    console.log();
+                var num = soundId.substring(0, soundId.indexOf('-'));
+                //console.log('sub' + $scope.instance.src.substring($scope.instance.src.indexOf('/')+1,$scope.instance.src.indexOf('.')));
+                if($scope.instance.src.indexOf(num)<0){
+                    $scope.instance.paused = true;
+                    $scope.instance = createjs.Sound.play($scope.sounds[index].id, {loop:-1});
+                }else{}
+
+
+            console.log($scope.instance);
     };
 }]);
 app.config(['$routeProvider','$locationProvider',
@@ -92,7 +116,7 @@ app.config(['$routeProvider','$locationProvider',
       templateUrl: 'partials/music',
       controller: 'MusicController'
     }).otherwise({
-        redirectTo: '/dates'
+        redirectTo: '/about'
     });
 }]);
 app.controller('DatesController',['$scope', function($scope){
@@ -111,7 +135,7 @@ app.controller('AboutController',['$scope', function($scope){
             aka: "Aaron Sutton",
             weapon_of_choice: "vocal chords, rhythem guitar",
             img_src: "images/aaron.jpg",
-            description: "Big Cat is bold, beautiful, and independent.  You don't wanna mess with him.  After spending years in the cat pound, he's back and in his own, struttin' his stuff.  HIS house: HIS rules, boy."
+            description: "Big Cat is bold, beautiful, and independent.  You don't wanna mess with him.  After spending years in the cat pound, he's back and in his own, struttin' his stuff.  HIS house, HIS rules, boy."
         },{
             name: "Show Girl #1",
             aka: "Josh Oursler",
@@ -136,3 +160,14 @@ app.controller('AboutController',['$scope', function($scope){
 app.controller('MusicController',['$scope', function($scope){
     $scope.message = "music controller active";
 }]);
+var position = $(window).scrollTop();
+function scrolled(){
+    var scroll = $(window).scrollTop();
+    if(scroll > position)
+        alert('down');
+    //alert('scrolled');
+    angular.element("#main-header").addClass('header-after-scroll');
+    angular.element("#top-bar").addClass('top-after-scroll');
+    angular.element('#header-container').addClass('header-container-after-scroll').addClass('col-md-7');
+    angular.element('#bottom-section').addClass('bottom-after-scroll');
+}
